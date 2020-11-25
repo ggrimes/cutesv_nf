@@ -45,7 +45,7 @@ if( params.mode == 'pacbio_clr' )
         ${sampleID}.vcf \
         --sample ${sampleID} \
         --threads  ${task.cpus} \
-        --max_size ${params.maxSize}
+        --max_size ${params.maxSize} \
         --max_cluster_bias_INS		100 \
 	      --diff_ratio_merging_INS	0.3 \
 	      --max_cluster_bias_DEL	100 \
