@@ -50,7 +50,7 @@ if( params.mode == 'pacbio_clr' )
 	      --diff_ratio_merging_INS	0.3 \
 	      --max_cluster_bias_DEL	100 \
 	      --diff_ratio_merging_DEL	0.3 \
-	--genotype True \
+	--genotype  \
         ${params.workdir}
         """
 
