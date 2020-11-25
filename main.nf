@@ -19,8 +19,8 @@ publishDir "results"
     path("{sampleID}.vcf") into out
 
 script:
-"""
-if( mode == 'pacbio_clr' )
+
+if( params.mode == 'pacbio_clr' )
         """
         --max_cluster_bias_INS		100
         --diff_ratio_merging_INS	0.3
@@ -28,7 +28,7 @@ if( mode == 'pacbio_clr' )
         --diff_ratio_merging_DEL	0.5
         """
 
-    else if( mode == 'pacbio_hifi' )
+    else if( params.mode == 'pacbio_hifi' )
         """
         --max_cluster_bias_INS		100
 	      --diff_ratio_merging_INS	0.3
@@ -36,7 +36,7 @@ if( mode == 'pacbio_clr' )
 	      --diff_ratio_merging_DEL	0.5
         """
 
-    else if( mode == 'nanopore' )
+    else if( params.mode == 'nanopore' )
         """
         cuteSV ${sampleID}.bam \
         ${params.reference} \
@@ -51,9 +51,5 @@ if( mode == 'pacbio_clr' )
 
     else
         error "Invalid alignment mode: ${mode}"
-
-"""
-
-
 
 }
